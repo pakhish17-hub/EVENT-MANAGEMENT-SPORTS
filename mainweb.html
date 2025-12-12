@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sports Event Management</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial;
+        }
+
+        body {
+            background: linear-gradient(45deg, #ff4d4d, #ff9900, #00ccff);
+            background-size: 300% 300%;
+            animation: bgmove 8s infinite alternate;
+            color: white;
+            text-align: center;
+        }
+
+        @keyframes bgmove {
+            0% { background-position: left; }
+            100% { background-position: right; }
+        }
+
+        header {
+            padding: 25px;
+            font-size: 32px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(3px);
+        }
+
+        .menu button {
+            padding: 12px 25px;
+            margin: 10px;
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+
+        .sportsBox {
+            margin: 40px auto;
+            width: 80%;
+        }
+
+        .card {
+            background: white;
+            color: black;
+            padding: 20px;
+            margin: 20px auto;
+            width: 70%;
+            border-radius: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        section {
+            padding: 40px;
+            background: rgba(0,0,0,0.25);
+            margin: 20px auto;
+            border-radius: 20px;
+            width: 80%;
+        }
+
+        input, select {
+            width: 280px;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            border: none;
+            outline: none;
+        }
+
+        .submitBtn {
+            padding: 12px 25px;
+            background: limegreen;
+            border: none;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        .loginBox, .registerBox {
+            background: white;
+            color: black;
+            padding: 25px;
+            width: 350px;
+            margin: auto;
+            border-radius: 15px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .homebtn {
+            padding: 12px 30px;
+            background: black;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+    </style>
+
+    <script>
+        function showPage(page) {
+            document.getElementById("home").classList.add("hidden");
+            document.getElementById("login").classList.add("hidden");
+            document.getElementById("register").classList.add("hidden");
+            document.getElementById("badminton").classList.add("hidden");
+            document.getElementById("basketball").classList.add("hidden");
+            document.getElementById("tennis").classList.add("hidden");
+
+            document.getElementById(page).classList.remove("hidden");
+        }
+    </script>
+
+</head>
+<body>
+
+<header>🏆 Sports Event Management</header>
+
+<div class="menu">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('login')">Login</button>
+    <button onclick="showPage('register')">Register</button>
+</div>
+
+<!-- HOME PAGE -->
+<section id="home">
+    <h1>Available Sports</h1>
+
+    <div class="sportsBox">
+
+        <div class="card" onclick="showPage('badminton')">🏸 Badminton</div>
+        <div class="card" onclick="showPage('basketball')">🏀 Basketball</div>
+        <div class="card" onclick="showPage('tennis')">🎾 Tennis</div>
+
+    </div>
+</section>
+
+<!-- LOGIN PAGE -->
+<section id="login" class="hidden">
+    <div class="loginBox">
+        <h2>Login</h2>
+        <input type="text" placeholder="Email"><br>
+        <input type="password" placeholder="Password"><br>
+        <button class="homebtn" onclick="showPage('home')">Login</button>
+    </div>
+</section>
+
+<!-- REGISTER PAGE -->
+<section id="register" class="hidden">
+    <div class="registerBox">
+        <h2>Register for Sports</h2>
+
+        <input type="text" placeholder="Full Name"><br>
+        <input type="email" placeholder="Email"><br>
+        <input type="text" placeholder="Phone Number"><br>
+
+        <select>
+            <option value="">Select Sport</option>
+            <option>Badminton</option>
+            <option>Basketball</option>
+            <option>Tennis</option>
+        </select><br>
+
+        <button class="submitBtn">Submit</button>
+    </div>
+</section>
+
+<!-- BADMINTON -->
+<section id="badminton" class="hidden">
+    <h2>🏸 Badminton Tournament</h2>
+    <p>Date: 15 January 2025</p>
+    <p>Location: Sports Arena Hall</p>
+    <button class="homebtn" onclick="showPage('register')">Register Now</button>
+</section>
+
+<!-- BASKETBALL -->
+<section id="basketball" class="hidden">
+    <h2>🏀 Basketball Tournament</h2>
+    <p>Date: 18 January 2025</p>
+    <p>Location: Indoor Stadium Court</p>
+    <button class="homebtn" onclick="showPage('register')">Register Now</button>
+</section>
+
+<!-- TENNIS -->
+<section id="tennis" class="hidden">
+    <h2>🎾 Tennis Tournament</h2>
+    <p>Date: 20 January 2025</p>
+    <p>Location: Green Lawn Court</p>
+    <button class="homebtn" onclick="showPage('register')">Register Now</button>
+</section>
+
+</body>
+</html>
